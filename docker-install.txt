@@ -1,0 +1,17 @@
+sudo su
+yum update -y
+amazon-linux-extras install docker
+yum install docker
+service docker start
+usermod -a -G docker ec2-user
+curl -L --fail https://github.com/docker/compose/releases/download/1.28.0/run.sh -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+. ~/.nvm/nvm.sh
+nvm install node
+yum install git
+git clone https://github.com/rearc/quest.git
+npm install
+
+//Will write Dockerfile and docker-compose.yml and .env in terraform
