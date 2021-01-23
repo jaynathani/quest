@@ -1,4 +1,7 @@
 node_modules
 package-lock.json
 .idea
-install-script.txt
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+.terraform/
