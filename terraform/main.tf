@@ -15,3 +15,12 @@ module "ec2" {
   subnets = ["subnet-f11d9697", "subnet-a2e77683"]
   vpc_id = "vpc-c67ed9bb"
 }
+
+module "ecs" {
+  source = "./ecs"
+  alb_target_grp_arn = module.ec2.alb_target_grp_http_arn
+  auto_scaling_grp_arn = module.ec2.asg_arn
+  ecr_url = module.ecr.ecr_url
+  subnets = ["subnet-f11d9697", "subnet-a2e77683"]
+  lb_sg_id = module.ec2.lb_sg_id
+}

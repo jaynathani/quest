@@ -32,4 +32,11 @@ resource "aws_security_group" "quest_sg" {
     to_port = 3000
     cidr_blocks = [var.cidr]
   }
+
+  egress {
+    from_port = 0
+    protocol = "-1"
+    to_port = 0
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
