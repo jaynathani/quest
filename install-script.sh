@@ -1,4 +1,4 @@
-sudo su
+#!/bin/bash
 sudo yum update -y
 sudo amazon-linux-extras install docker -y
 sudo service docker start
@@ -14,5 +14,3 @@ sudo yum install git -y
 git clone https://github.com/jaynathani/quest.git
 cd quest
 npm install
-
-//Will write Dockerfile and docker-compose.yml and .env in terraform
