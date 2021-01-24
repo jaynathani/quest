@@ -1,10 +1,11 @@
 module "ecr" {
   source = "./ecr"
-  ecr_repository_name = "test-repo"
+  ecr_repository_name = var.ecr_repository_name
 }
 
 module "s3" {
   source = "./s3"
+  log_bucket_name = var.s3_bucket_name_for_ecs_logs
 }
 
 module "ec2" {
