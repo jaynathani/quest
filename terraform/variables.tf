@@ -11,7 +11,6 @@ variable "vpc_id" {
 variable "cidr" {
   type = list(string)
   description = "CIDR values for Security Group"
-  default = ["71.248.165.247/32"]
 }
 
 variable "s3_bucket_name_for_ecs_logs" {

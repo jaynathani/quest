@@ -1,7 +1,6 @@
 variable "cidr" {
   type = list(string)
   description = "CIDR values for Security Group"
-  default = ["71.248.165.247/32"]
 }
 
 variable "lb_name" {
