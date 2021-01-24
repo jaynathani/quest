@@ -21,6 +21,11 @@ resource "aws_lb_target_group" "quest_lb_target_group_https" {
   port = 443
   protocol = "HTTPS"
   vpc_id = var.vpc_id
+  target_type = "ip"
+  health_check {
+    timeout = 30
+    interval = 200
+  }
 }
 
 resource "aws_lb_target_group" "quest_lb_target_group_http" {
@@ -38,7 +43,7 @@ resource "aws_lb_listener" "quest_lb_listener" {
   certificate_arn = aws_iam_server_certificate.quest_elb_ssl_cert.arn
   default_action {
     type = "forward"
-    target_group_arn = aws_lb_target_group.quest_lb_target_group_https.arn
+    target_group_arn = aws_lb_target_group.quest_lb_target_group_http.arn
   }
 }
 

@@ -16,7 +16,7 @@ resource "aws_ecs_service" "quest_ecs_service" {
   }
 
   load_balancer {
-    target_group_arn = var.alb_target_grp_arn
+    target_group_arn = var.alb_target_grp_arn_http
     container_name = aws_ecs_task_definition.quest_ecs_td.family
     container_port = 3000
   }
@@ -28,18 +28,23 @@ resource "aws_ecs_task_definition" "quest_ecs_td" {
 [
   {
     "name": "quest_ecs_task",
-    "image": "${var.ecr_url}:1",
+    "image": "${var.ecr_url}:2",
+    "environment": [
+      {
+        "name": "SECRET_WORD",
+        "value": "${var.quest_secret_word}"
+      }
+    ],
     "memory": 512,
     "cpu": 256,
     "essential": true,
     "portMappings": [
       {
         "containerPort": 3000,
-        "hostPort": 3000
+        "hostPort": 3000,
+        "protocol": "tcp"
       }
-    ],
-    "memory": 512,
-    "cpu": 256
+    ]
   }
 ]
 EOF
