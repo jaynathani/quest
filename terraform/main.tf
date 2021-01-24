@@ -1,6 +1,8 @@
 module "ecr" {
   source = "./ecr"
   ecr_repository_name = var.ecr_repository_name
+  docker_image_version = var.docker_image_version
+  local_docker_image_id = var.local_docker_image_id
 }
 
 module "s3" {

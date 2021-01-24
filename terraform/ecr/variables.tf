@@ -3,3 +3,13 @@ variable "ecr_repository_name" {
   description = "Name of the Elastic Container Registry"
   default = "rearc-quest-repo"
 }
+
+variable "docker_image_version" {
+  type = string
+  description = "Docker image version for ECR image"
+}
+
+variable "local_docker_image_id" {
+  type = string
+  description = "Local Docker image ID"
+}

@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "quest_logs" {
   bucket = var.log_bucket_name
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_policy" "quest_logs_bucket_policy" {
