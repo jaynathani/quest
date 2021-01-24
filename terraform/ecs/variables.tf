@@ -8,14 +8,14 @@ variable "alb_target_grp_arn_https" {
   description = "Load balancer target group arn HTTPS"
 }
 
-variable "auto_scaling_grp_arn" {
-  type = string
-  description = "ASG arn"
-}
-
 variable "ecr_url" {
   type = string
   description = "URL of the ECR"
+}
+
+variable "ecr_docker_image_version" {
+  type = string
+  description = "Docker image version"
 }
 
 variable "subnets" {
@@ -31,4 +31,22 @@ variable "lb_sg_id" {
 variable "quest_secret_word"{
   type = string
   description = "Secret word for rearc quest"
+}
+
+variable "ecs_cluster_name" {
+  type = string
+  description = "Name of the ECS cluster"
+  default = "rearc-quest-cluster"
+}
+
+variable "ecs_service_name" {
+  type = string
+  description = "Name of ECS service"
+  default = "rearc-quest-service"
+}
+
+variable "ecs_task_definition_name" {
+  type = string
+  description = "Name of ECS task definition"
+  default = "rearc-quest-task-definition"
 }

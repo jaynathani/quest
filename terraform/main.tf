@@ -19,11 +19,14 @@ module "ec2" {
 
 module "ecs" {
   source = "./ecs"
-  auto_scaling_grp_arn = module.ec2.asg_arn
   ecr_url = module.ecr.ecr_url
+  ecr_docker_image_version = "2"
   subnets = ["subnet-f11d9697", "subnet-a2e77683"]
   lb_sg_id = module.ec2.lb_sg_id
   alb_target_grp_arn_http = module.ec2.alb_target_grp_http_arn
   alb_target_grp_arn_https = module.ec2.alb_target_grp_https_arn
   quest_secret_word = "TwelveFactor"
+  ecs_cluster_name = var.ecs_cluster_name
+  ecs_service_name = var.ecs_service_name
+  ecs_task_definition_name = var.ecs_task_definition_name
 }
