@@ -88,11 +88,6 @@ variable "ssl_cert_private_file_path" {
   description = "File path for ssl cert private key"
 }
 
-variable "docker_image_version" {
-  type = string
-  description = "Docker image version for ECR image"
-}
-
 variable "local_docker_image_id" {
   type = string
   description = "Local Docker image ID"

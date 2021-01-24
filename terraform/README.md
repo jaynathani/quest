@@ -2,8 +2,13 @@
 These terraform modules focus on deploying Rearc's Quest (a node app) in containers behind a Load Balancer on HTTPS. You can either choose to source the root module that will spin up all the resources or you can source the sub-modules individually.
 
 ## Pre-requisites
-- AWS CLI
-- Terraform
+- AWS CLI (version: 2.1.18)
+- Terraform (developed on v0.14.5)
+
+## Providers
+I developed using the following versions:
+- aws v3/25/0
+- null v3.0.0
 
 ## Resources created
 - 1 ECR repository

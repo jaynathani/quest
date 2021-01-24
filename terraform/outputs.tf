@@ -25,3 +25,7 @@ output "ecs_task_definition_id" {
 output "ecs_security_group_id" {
   value = module.ecs.ecs_security_group_id
 }
+
+output "elb_dns" {
+  value = module.ec2.elb_dns
+}

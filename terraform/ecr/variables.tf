@@ -4,7 +4,7 @@ variable "ecr_repository_name" {
   default = "rearc-quest-repo"
 }
 
-variable "docker_image_version" {
+variable "ecr_docker_image_version" {
   type = string
   description = "Docker image version for ECR image"
 }

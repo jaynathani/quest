@@ -1,7 +1,7 @@
 module "ecr" {
   source = "./ecr"
   ecr_repository_name = var.ecr_repository_name
-  docker_image_version = var.docker_image_version
+  ecr_docker_image_version = var.ecr_docker_image_version
   local_docker_image_id = var.local_docker_image_id
 }
 
@@ -11,6 +11,7 @@ module "s3" {
 }
 
 module "ec2" {
+  depends_on = [module.s3]
   source = "./ec2"
   s3_logs_bucket = module.s3.logs_bucket_id
   ssl_cert_body_file_path = var.ssl_cert_body_path
@@ -25,6 +26,7 @@ module "ec2" {
 }
 
 module "ecs" {
+  depends_on = [module.ec2]
   source = "./ecs"
   ecr_url = module.ecr.ecr_url
   ecr_docker_image_version = var.ecr_docker_image_version

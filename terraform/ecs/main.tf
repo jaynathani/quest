@@ -27,8 +27,8 @@ resource "aws_ecs_task_definition" "quest_ecs_td" {
   container_definitions = <<EOF
 [
   {
-    "name": "quest_ecs_task",
-    "image": "${var.ecr_url}:2",
+    "name": "${var.ecs_task_definition_name}",
+    "image": "${var.ecr_url}:${var.ecr_docker_image_version}",
     "environment": [
       {
         "name": "SECRET_WORD",

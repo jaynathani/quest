@@ -11,11 +11,11 @@ resource "null_resource" "push_local_docker_image_to_ecr" {
   }
 
   provisioner "local-exec" {
-    command = "docker tag ${var.local_docker_image_id} ${aws_ecr_repository.quest_ecr.repository_url}:${var.docker_image_version}"
+    command = "docker tag ${var.local_docker_image_id} ${aws_ecr_repository.quest_ecr.repository_url}:${var.ecr_docker_image_version}"
   }
 
   provisioner "local-exec" {
-    command = "docjer push ${aws_ecr_repository.quest_ecr.repository_url}:${var.docker_image_version}"
+    command = "docker push ${aws_ecr_repository.quest_ecr.repository_url}:${var.ecr_docker_image_version}"
   }
 }
 

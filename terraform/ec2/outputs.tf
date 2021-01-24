@@ -13,3 +13,7 @@ output "iam_ssl_certificate_id" {
 output "lb_id" {
   value = aws_lb.quest_elb.id
 }
+
+output "elb_dns" {
+  value = aws_lb.quest_elb.dns_name
+}
