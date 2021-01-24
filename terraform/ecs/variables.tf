@@ -1,47 +1,47 @@
 variable "alb_target_grp_arn_http" {
-  type = string
+  type        = string
   description = "Load balancer target group arn HTTP"
 }
 
 variable "ecr_url" {
-  type = string
+  type        = string
   description = "URL of the ECR"
 }
 
 variable "ecr_docker_image_version" {
-  type = string
+  type        = string
   description = "Docker image version"
 }
 
 variable "subnets" {
-  type = list(string)
+  type        = list(string)
   description = "List of subnets"
 }
 
 variable "lb_sg_id" {
-  type = string
+  type        = string
   description = "Load balancer security group id"
 }
 
-variable "quest_secret_word"{
-  type = string
+variable "quest_secret_word" {
+  type        = string
   description = "Secret word for rearc quest"
 }
 
 variable "ecs_cluster_name" {
-  type = string
+  type        = string
   description = "Name of the ECS cluster"
-  default = "rearc-quest-cluster"
+  default     = "rearc-quest-cluster"
 }
 
 variable "ecs_service_name" {
-  type = string
+  type        = string
   description = "Name of ECS service"
-  default = "rearc-quest-service"
+  default     = "rearc-quest-service"
 }
 
 variable "ecs_task_definition_name" {
-  type = string
+  type        = string
   description = "Name of ECS task definition"
-  default = "rearc-quest-task-definition"
+  default     = "rearc-quest-task-definition"
 }

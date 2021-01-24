@@ -3,28 +3,28 @@ resource "aws_ecs_cluster" "quest_ecs_cluster" {
 }
 
 resource "aws_ecs_service" "quest_ecs_service" {
-  name = var.ecs_service_name
-  cluster = aws_ecs_cluster.quest_ecs_cluster.id
+  name            = var.ecs_service_name
+  cluster         = aws_ecs_cluster.quest_ecs_cluster.id
   task_definition = aws_ecs_task_definition.quest_ecs_td.arn
-  desired_count = 3
-  launch_type = "FARGATE"
+  desired_count   = 3
+  launch_type     = "FARGATE"
 
   network_configuration {
-    subnets = var.subnets
+    subnets          = var.subnets
     assign_public_ip = true
-    security_groups = [aws_security_group.quest_ecs_security_group.id]
+    security_groups  = [aws_security_group.quest_ecs_security_group.id]
   }
 
   load_balancer {
     target_group_arn = var.alb_target_grp_arn_http
-    container_name = aws_ecs_task_definition.quest_ecs_td.family
-    container_port = 3000
+    container_name   = aws_ecs_task_definition.quest_ecs_td.family
+    container_port   = 3000
   }
 }
 
 resource "aws_ecs_task_definition" "quest_ecs_td" {
-  family = var.ecs_task_definition_name
-  container_definitions = <<EOF
+  family                   = var.ecs_task_definition_name
+  container_definitions    = <<EOF
 [
   {
     "name": "${var.ecs_task_definition_name}",
@@ -49,10 +49,10 @@ resource "aws_ecs_task_definition" "quest_ecs_td" {
 ]
 EOF
   requires_compatibilities = ["FARGATE"]
-  network_mode = "awsvpc"
-  memory = 512
-  cpu = 256
-  execution_role_arn = aws_iam_role.quest_task_execution_role.arn
+  network_mode             = "awsvpc"
+  memory                   = 512
+  cpu                      = 256
+  execution_role_arn       = aws_iam_role.quest_task_execution_role.arn
 }
 
 resource "aws_iam_role" "quest_task_execution_role" {
@@ -79,15 +79,15 @@ resource "aws_iam_role_policy_attachment" "ecsTaskExecutionRole_policy" {
 resource "aws_security_group" "quest_ecs_security_group" {
   ingress {
     from_port = 0
-    protocol = "-1"
-    to_port = 0
+    protocol  = "-1"
+    to_port   = 0
     //Only allowing traffic in from the load balancer security group
     security_groups = [var.lb_sg_id]
   }
   egress {
-    from_port = 0
-    protocol = "-1"
-    to_port = 0
+    from_port   = 0
+    protocol    = "-1"
+    to_port     = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
