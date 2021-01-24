@@ -15,7 +15,7 @@ These terraform modules focus on deploying Rearc's Quest (a node app) in contain
 - 1 IAM Role (ECS Task Execution Role)
 - 1 IAM Role Policy Document
 - 1 ELB (Application LB)
-- 2 ELB Target Groups (HTTP and HTTPS)
+- 1 ELB Target Group
 - 2 ELB Listeners (HTTP and HTTPS)
 - 1 Security Group (For load balancer)
 - 1 Security Group (ECS access to Load Balancer)

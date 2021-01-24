@@ -1,12 +1,12 @@
 resource "aws_security_group" "quest_sg" {
-  name = "quest_sg"
+  name = var.lb_security_group_name
   description = "Allowing SSH, 80, 443, 3000 access to CIDR"
   ingress {
     description = "SSH connection"
     from_port = 22
     protocol = "tcp"
     to_port = 22
-    cidr_blocks = [var.cidr]
+    cidr_blocks = var.cidr
   }
 
   ingress {
@@ -14,7 +14,7 @@ resource "aws_security_group" "quest_sg" {
     from_port = 80
     protocol = "tcp"
     to_port = 80
-    cidr_blocks = [var.cidr]
+    cidr_blocks = var.cidr
   }
 
   ingress {
@@ -22,7 +22,7 @@ resource "aws_security_group" "quest_sg" {
     from_port = 443
     protocol = "tcp"
     to_port = 443
-    cidr_blocks = [var.cidr]
+    cidr_blocks = var.cidr
   }
 
   ingress {
@@ -30,7 +30,7 @@ resource "aws_security_group" "quest_sg" {
     from_port = 3000
     protocol = "tcp"
     to_port = 3000
-    cidr_blocks = [var.cidr]
+    cidr_blocks = var.cidr
   }
 
   egress {

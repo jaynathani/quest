@@ -1,7 +1,7 @@
 variable "cidr" {
-  type = string
-  description = "CIDR value for Security Group"
-  default = "71.248.165.247/32"
+  type = list(string)
+  description = "CIDR values for Security Group"
+  default = ["71.248.165.247/32"]
 }
 
 variable "lb_name" {
@@ -45,4 +45,10 @@ variable "lb_target_grp_name" {
 variable "vpc_id" {
   type = string
   description = "VPC ID"
+}
+
+variable "lb_security_group_name" {
+  type = string
+  description = "Name of load balancer sg"
+  default = "quest_lb_sg"
 }

@@ -4,9 +4,9 @@ variable "subnets" {
 }
 
 variable "cidr" {
-  type = string
-  description = "CIDR value for Security Group"
-  default = "71.248.165.247/32"
+  type = list(string)
+  description = "CIDR values for Security Group"
+  default = ["71.248.165.247/32"]
 }
 
 variable "s3_bucket_name_for_ecs_logs" {
@@ -37,4 +37,28 @@ variable "ecs_task_definition_name" {
   type = string
   description = "Name of ECS task definition"
   default = "rearc-quest-task-definition"
+}
+
+variable "lb_name" {
+  type = string
+  description = "Name of Elastic Load Balancer"
+  default = "quest-lb"
+}
+
+variable "ssl_cert_name" {
+  type = string
+  description = "Name of ssl certificate"
+  default = "quest-self-signed-ssl-cert"
+}
+
+variable "lb_target_grp_name" {
+  type = string
+  description = "Name of the LB target group"
+  default = "quest-lb-tg-grp"
+}
+
+variable "lb_security_group_name" {
+  type = string
+  description = "Name of load balancer sg"
+  default = "quest_lb_sg"
 }

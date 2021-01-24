@@ -3,11 +3,6 @@ variable "alb_target_grp_arn_http" {
   description = "Load balancer target group arn HTTP"
 }
 
-variable "alb_target_grp_arn_https" {
-  type = string
-  description = "Load balancer target group arn HTTPS"
-}
-
 variable "ecr_url" {
   type = string
   description = "URL of the ECR"

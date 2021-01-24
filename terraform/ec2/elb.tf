@@ -16,20 +16,8 @@ resource "aws_lb" "quest_elb" {
   }
 }
 
-resource "aws_lb_target_group" "quest_lb_target_group_https" {
-  name = var.lb_target_grp_name
-  port = 443
-  protocol = "HTTPS"
-  vpc_id = var.vpc_id
-  target_type = "ip"
-  health_check {
-    timeout = 30
-    interval = 200
-  }
-}
-
 resource "aws_lb_target_group" "quest_lb_target_group_http" {
-  name = "quest-http-target-grp"
+  name = var.lb_target_grp_name
   port = 80
   protocol = "HTTP"
   vpc_id = var.vpc_id
