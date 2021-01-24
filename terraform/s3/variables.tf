@@ -1,5 +1,5 @@
 variable "log_bucket_name" {
-  type = string
+  type        = string
   description = "Name of the S3 bucket for logs"
-  default = "quest-logs"
+  default     = "quest-logs"
 }
