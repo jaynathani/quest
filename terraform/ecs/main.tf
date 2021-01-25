@@ -29,12 +29,6 @@ resource "aws_ecs_task_definition" "quest_ecs_td" {
   {
     "name": "${var.ecs_task_definition_name}",
     "image": "${var.ecr_url}:${var.ecr_docker_image_version}",
-    "environment": [
-      {
-        "name": "SECRET_WORD",
-        "value": "${var.quest_secret_word}"
-      }
-    ],
     "memory": 512,
     "cpu": 256,
     "essential": true,
