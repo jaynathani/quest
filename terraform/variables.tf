@@ -72,11 +72,6 @@ variable "ecr_docker_image_version" {
   description = "Tag/version of the upload docker image in ECR"
 }
 
-variable "quest_secret_word" {
-  type        = string
-  description = "Rearc Quest Secret word"
-}
-
 variable "ssl_cert_body_path" {
   type        = string
   description = "File path for ssl cert body"

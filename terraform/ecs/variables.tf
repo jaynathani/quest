@@ -23,11 +23,6 @@ variable "lb_sg_id" {
   description = "Load balancer security group id"
 }
 
-variable "quest_secret_word" {
-  type        = string
-  description = "Secret word for rearc quest"
-}
-
 variable "ecs_cluster_name" {
   type        = string
   description = "Name of the ECS cluster"

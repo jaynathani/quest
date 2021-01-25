@@ -33,7 +33,6 @@ module "ecs" {
   subnets                  = var.subnets
   lb_sg_id                 = module.ec2.lb_sg_id
   alb_target_grp_arn_http  = module.ec2.alb_target_grp_http_arn
-  quest_secret_word        = var.quest_secret_word
   ecs_cluster_name         = var.ecs_cluster_name
   ecs_service_name         = var.ecs_service_name
   ecs_task_definition_name = var.ecs_task_definition_name
